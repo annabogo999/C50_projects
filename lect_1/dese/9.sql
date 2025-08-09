@@ -1,4 +1,4 @@
-SELECT "expenditures"."pupils", "districts"."name"
+SELECT "districts"."name"
 FROM "expenditures"
 JOIN "districts"
 ON "districts"."id" = "expenditures"."district_id"
