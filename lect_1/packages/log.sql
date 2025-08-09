@@ -12,8 +12,8 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
         SELECT "id" FROM "addresses" WHERE "address" LIKE '%900%omerville%venue%'
     )
     AND "action" = 'Drop'
-    AND "to_address_id" = (
-        SELECT "id" FROM "addresses" WHERE "address" LIKE '%2%innegan%treet') OR IS NULL
+    AND "to_address_id" IS NULL OR "to_address_id" = (
+        SELECT "id" FROM "addresses" WHERE "address" LIKE '%2%innegan%treet'
     )
 );
 
