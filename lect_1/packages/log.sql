@@ -10,39 +10,28 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
     ))
 );
 -- *** The Devious Delivery ***
+-- Searching for the package id of the Devious Delivery
+SELECT "id" FROM "packages" WHERE "from_address_id" IS NULL AND "contents" LIKE '%duck%' AND "id" IN (
+    SELECT "package_id" FROM "scans" WHERE "action" = 'Drop'
+);
 -- Searching for the address type of the Devious Delivery
-SELECT "type" FROM "addresses" WHERE "id" IN (
-     SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" = (
-        SELECT "package_id" FROM "packages" WHERE "from_address_id"  IS NULL OR "from_address_id"  = (
-            SELECT "id" FROM "addresses" WHERE "address" LIKE '%iftyvill%'
-        )
-        AND "to_address_id" != (
-            SELECT "address_id" FROM "scans"
-        )
-     )
+SELECT "type" FROM "addresses" WHERE "id" = (
+    SELECT "address_id" FROM "scans" WHERE "package_id" = 5098 AND "action" = 'Drop'
 );
 -- Searching for the contents of the Devious Delivery
-SELECT "contents" FROM "packages" WHERE "id" = (
-    SELECT "package_id" FROM "scans" WHERE "action" = 'Drop' AND "address_id" != (
-        SELECT "to_address_id" FROM "packages" WHERE "from_address_id" IS NULL
-     )
-);
+SELECT "contents" FROM "packages" WHERE "id" = 5098;
+
 -- *** The Forgotten Gift ***
 -- Searching for the contents of the Forgotten Gift
-SELECT "contents" FROM "packages" WHERE "from_address_id" = (
+SELECT "contents", "id" FROM "packages" WHERE "from_address_id" IN (
     SELECT "id" FROM "addresses" WHERE "address" LIKE '%109%ileston%'
 )
 AND "to_address_id" = (
      SELECT "id" FROM "addresses" WHERE "address" LIKE '%728%aple%lace'
 );
 -- Searching for the name of the driver that has flowers
-SELECT "name" FROM "drivers" WHERE "id" = (
-    SELECT "driver_id" FROM "scans" WHERE "package_id" = (
-        SELECT "id" FROM "packages" WHERE "from_address_id" = (
-            SELECT "id" FROM "addresses" WHERE "address" LIKE '%109%ileston%'
-        )
-        AND "to_address_id" = (
-            SELECT "id" FROM "addresses" WHERE "address" LIKE '%728%aple%lace'
-        )
+SELECT "name" FROM "drivers" WHERE "id" IN (
+    SELECT "driver_id" FROM "scans" WHERE "package_id" = 9523 AND "timestamp" = (
+        SELECT MAX ("timestamp") FROM "scans" WHERE "package_id" = 9523
     )
 );
