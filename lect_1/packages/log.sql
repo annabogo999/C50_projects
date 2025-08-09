@@ -21,16 +21,12 @@ SELECT "type" FROM "addresses" WHERE "id" IN (
         )
      )
 );
-
-
 -- Searching for the contents of the Devious Delivery
 SELECT "contents" FROM "packages" WHERE "id" = (
     SELECT "package_id" FROM "scans" WHERE "action" = 'Drop' AND "address_id" != (
         SELECT "to_address_id" FROM "packages" WHERE "from_address_id" IS NULL
      )
 );
-
-
 -- *** The Forgotten Gift ***
 -- Searching for the contents of the Forgotten Gift
 SELECT "contents" FROM "packages" WHERE "from_address_id" = (
