@@ -15,6 +15,7 @@ SELECT "type" FROM "addresses" WHERE "id" IN (
      SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" = (
         SELECT "package_id" FROM "packages" WHERE "from_address_id" IS NULL
      )
+     AND 
 );
 
      AND "address_id" != (
