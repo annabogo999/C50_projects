@@ -1,4 +1,7 @@
-SELECT "expenditures"."pupils", "districts"."names"
-FROM "expenditures" WHERE "expenditures"."pupils" = MIN ("expenditures"."pupils")
+SELECT "expenditures"."pupils", "districts"."name"
+FROM "expenditures"
 JOIN "districts"
-ON "districts"."id" = "expenditures"."districts_id";
+ON "districts"."id" = "expenditures"."district_id"
+WHERE "expenditures"."pupils" = (
+    SELECT MIN ("expenditures"."pupils") FROM "expenditures"
+);
