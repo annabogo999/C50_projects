@@ -1,1 +1,2 @@
-SELECT "district_id", "pupils" FROM "expenditures";
+SELECT "district_id", "pupils" FROM "expenditures"
+JOIN 
