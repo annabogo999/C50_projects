@@ -10,7 +10,7 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
      )
 );
 -- *** The Devious Delivery ***
-SELECT "address" FROM "addresses" WHERE "id" = (
+SELECT "type" FROM "addresses" WHERE "id" = (
      SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "address_id" != (
         SELECT "to_address_id" FROM "packages" WHERE "from_address_id" IS NULL
      )
