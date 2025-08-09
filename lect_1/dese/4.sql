@@ -1,2 +1,3 @@
 SELECT "city", COUNT ("id") FROM "schools" WHERE "type" = 'Public School'
-ORDER BY COUNT ("id") DESC, "city" DESC;
+GROUP BY "city"
+ORDER BY COUNT ("id") DESC, "city" DESC LIMIT 10;
