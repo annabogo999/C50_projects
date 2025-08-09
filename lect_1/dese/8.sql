@@ -3,7 +3,7 @@ FROM "districts"
 JOIN "expenditures"
 ON "expenditures"."district_id" = "districts"."id";
 
-SELECT "expenditures"."district_id", "expenditures"."pupils", "names"."districts"
+SELECT "expenditures"."district_id", "expenditures"."pupils", "name"."districts"
 FROM "expenditures"
 JOIN "districts"
 ON "districts"."id" = "expenditures"."district_id";
