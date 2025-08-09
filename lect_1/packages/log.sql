@@ -9,7 +9,8 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
 );
 SELECT "address", "type" FROM "addresses" WHERE "id" = (
     SELECT "address_id" FROM "scans" WHERE "from_address_id" LIKE '%900%omerville%venue'
-)
+    AND "action" = 'Drop' AND ("to_address_id" IS NULL OR "to_address_id" LIKE '2%innegan%treet')
+);
 
 
 -- *** The Devious Delivery ***
