@@ -13,7 +13,7 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
 -- Searching for the address type of the Devious Delivery
 SELECT "type" FROM "addresses" WHERE "id" IN (
      SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" = (
-        SELECT "package_id" FROM "packages" WHERE "from_address_id" = (
+        SELECT "package_id" FROM "packages" WHERE "from_address_id"  IS NULL OR "from_address_id"  = (
             SELECT "id" FROM "addresses" WHERE "address" LIKE '%iftyvill%'
         )
         AND "to_address_id" != (
@@ -22,14 +22,7 @@ SELECT "type" FROM "addresses" WHERE "id" IN (
      )
 );
 
-SELECT "package_id" FROM "packages" WHERE "from_address_id" = (
-    SELECT "id" FROM "addresses" WHERE "address" LIKE '%50vill%'
-);
 
-     AND "address_id" != (
-        SELECT "to_address_id" FROM "packages" WHERE "package
-     )
-);
 -- Searching for the contents of the Devious Delivery
 SELECT "contents" FROM "packages" WHERE "id" = (
     SELECT "package_id" FROM "scans" WHERE "action" = 'Drop' AND "address_id" != (
