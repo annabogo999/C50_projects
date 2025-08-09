@@ -7,16 +7,11 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
         )
      )
 );
-SELECT "address", "type" FROM "addresses" WHERE "id" = (
-    SELECT "address_id" FROM "scans" WHERE "from_address_id" = (
-        SELECT "id" FROM "addresses" WHERE "address" LIKE '%900%omerville%venue%'
-    )
-    AND "action" = 'Drop'
-    AND "to_address_id" IS NULL OR "to_address_id" = (
-        SELECT "id" FROM "addresses" WHERE "address" LIKE '%2%innegan%treet'
+SELECT "address", "type" FROM "addresses" WHERE "id" IN (
+    SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" = (
+        SELECT "id" FROM "packages" WHERE "from_address_id" LIKE '%900%omerville%venue%'
     )
 );
-
 
 -- *** The Devious Delivery ***
 -- Searching for the address type of the Devious Delivery
