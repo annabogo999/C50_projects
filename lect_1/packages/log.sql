@@ -21,4 +21,9 @@ SELECT "contents" FROM "packages" WHERE "id" = (
      )
 );
 -- *** The Forgotten Gift ***
-SELECT "contents
+SELECT "contents" FROM "packages" WHERE "from_address_id" = (
+    SELECT "id" FROM "addresses" WHERE "address" LIKE '%109%ileston'
+)
+AND "to_address_id" = (
+     SELECT "id" FROM "addresses" WHERE "address" LIKE '%728%aple%lace'
+);
