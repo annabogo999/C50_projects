@@ -5,5 +5,5 @@ ON "expenditures"."district_id" = "districts"."id";
 
 SELECT "expenditures"."district_id", "expenditures"."pupils"
 FROM "expenditures"
-JOIN "districts"."names"
+JOIN "districts"
 ON "districts"."id" = "expenditures"."district_id";
