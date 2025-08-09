@@ -5,5 +5,5 @@ At what address did the Lost Letter end up?: Warehouse
 At what type of address did the Devious Delivery end up?: Residential
 What were the contents of the Devious Delivery?: Congratulatory letter
 
-What are the contents of the Forgotten Gift?:
-Who has the Forgotten Gift?:
+What are the contents of the Forgotten Gift?:  Flowers
+Who has the Forgotten Gift?: Maegan
