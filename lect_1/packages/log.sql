@@ -11,8 +11,8 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
 );
 -- *** The Devious Delivery ***
 -- Searching for the address type of the Devious Delivery
-SELECT "type" FROM "addresses" WHERE "id" = (
-     SELECT "address_id" FROM "scans" WHERE "action" = 'Drop'
+SELECT "type" FROM "addresses" WHERE "id" IN (
+     SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "from_address_id" IS NULL);
 
 
      AND "address_id" != (
