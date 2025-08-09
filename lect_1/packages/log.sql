@@ -7,7 +7,9 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
         )
      )
 );
-SELECT "address", "type" FROM "addresses" WHERE "id" IN
+SELECT "address", "type" FROM "addresses" WHERE "id" = (
+    SELECT "address_id" FROM "packages" WHERE 
+)
 
 
 -- *** The Devious Delivery ***
