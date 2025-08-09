@@ -8,7 +8,7 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
      )
 );
 SELECT "address", "type" FROM "addresses" WHERE "id" IN (
-    SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" = (
+    SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" IN (
         SELECT "id" FROM "packages" WHERE "from_address_id" LIKE '%900%omerville%venue%'
     )
 );
