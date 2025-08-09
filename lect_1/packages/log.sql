@@ -7,6 +7,9 @@ SELECT "address", "type" FROM "addresses" WHERE "id" = (
         )
      )
 );
+SELECT "address", "type" FROM "addresses" WHERE "id" IN
+
+
 -- *** The Devious Delivery ***
 -- Searching for the address type of the Devious Delivery
 SELECT "type" FROM "addresses" WHERE "id" = (
