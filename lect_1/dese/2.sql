@@ -1,1 +1,1 @@
-SELECT "name" FROM "districts" WHERE "name" = '%non_op%';
+SELECT "name" FROM "districts" WHERE "name" = '%non%op%';
