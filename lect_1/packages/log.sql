@@ -12,7 +12,9 @@ SELECT "address_id" FROM "scans" WHERE "action" = 'Drop' AND "package_id" IN (
     SELECT "id" FROM "packages" WHERE "from_address_id" = (
         SELECT "id" FROM "addresses" WHERE "address" LIKE '%900%omerville%venue%'
     )
-    AND "to_address_id" IS NULL
+    AND "to_address_id" = (
+        SELECT "id" FROM "addresses" WHERE "address" LIKE '2%inn_gan%treet%'
+    )
 );
 
 -- *** The Devious Delivery ***
