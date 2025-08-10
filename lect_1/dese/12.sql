@@ -11,5 +11,5 @@ AND
 "per_pupil_expenditure" > (
     SELECT AVG("per_pupil_expenditure") FROM "expenditures"
 )
-AND "districts"."type" = 'Public School District';
-
+AND "districts"."type" = 'Public School District'
+ORDER BY "exemplary" DESC, "per_pupil_expenditure" DESC;
