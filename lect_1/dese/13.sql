@@ -1,15 +1,15 @@
-SELECT "districts"."name", "expenditures"."per_pupil_expenditure", "staff_evaluations"."exemplary"
+SELECT "districts"."name", "expenditures"."per_pupil_expenditure", "staff_evaluations"."unsatisfactory"
 FROM "districts"
 JOIN "expenditures"
 ON "districts"."id" = "expenditures"."district_id"
 JOIN "staff_evaluations"
 ON "districts"."id" = "staff_evaluations"."district_id"
 WHERE "unsatisfactory" > (
-    SELECT AVG ("exemplary") FROM "staff_evaluations"
+    SELECT AVG ("unsatisfactory") FROM "staff_evaluations"
 )
 AND
 "per_pupil_expenditure" > (
     SELECT AVG("per_pupil_expenditure") FROM "expenditures"
 )
 AND "districts"."type" = 'Public School District'
-ORDER BY "exemplary" DESC, "per_pupil_expenditure" DESC;
+ORDER BY "unsatisfactory" DESC, "per_pupil_expenditure" DESC;
