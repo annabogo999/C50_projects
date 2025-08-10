@@ -6,8 +6,10 @@ JOIN "staff_evaluations"
 ON "districts"."id" = "staff_evaluations"."district_id"
 WHERE "exemplary" > SELECT (
     AVG ("exemplary") FROM "staff_evaluations"
-) AND
+)
+AND
 "per_pupil_expenditure" > SELECT (
     AVG("per_pupil_expenditure") FROM "expenditures"
-) AND "districts"."type" = 'Public School District';
+)
+AND "districts"."type" = 'Public School District';
 
