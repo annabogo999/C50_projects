@@ -5,7 +5,8 @@ CREATE TABLE "meteorites" (
     "nametype" TEXT,
     "class" TEXT,
     "mass" NUMERIC,
-    "disc_year" INTEGER,
+    "discovery" TEXT,
+    "year" INTEGER,
     "lat" NUMERIC,
     "long" NUMERIC,
     PRIMARY KEY("id")
