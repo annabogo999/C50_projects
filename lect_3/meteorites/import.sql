@@ -1,10 +1,11 @@
 -- IMPORT FROM csv to temp
 .import --csv meteorites.csv temp
 -- CLEAN "Relict"
-DELETE FROM "meteorites"
+DELETE FROM "temp"
 WHERE "nametype" = 'Relict';
+-- CREATE NEW TEMP TABLE WITH ID
 
-CREATE TABLE "meteorites_temp1" (
+CREATE TABLE "meteorites_temp" (
     "id" INTEGER,
     "name" TEXT NOT NULL UNIQUE,
     "class" TEXT,
