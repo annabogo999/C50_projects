@@ -11,4 +11,4 @@ CREATE TABLE "meteorites_temp" (
     "long" NUMERIC,
     PRIMARY KEY("id")
 );
-.import --csv --skip 1 meteorites.csv meteorites_temp
+.import --csv --skip 1 meteorites.csv temp
