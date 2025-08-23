@@ -1,12 +1,10 @@
 CREATE TABLE "meteorites_temp1" (
     "id" INTEGER,
     "name" TEXT NOT NULL UNIQUE,
-    "id_original" INTEGER NOT NULL UNIQUE,
-    "nametype" TEXT,
     "class" TEXT,
     "mass" NUMERIC,
     "discovery" TEXT,
-    "year" INTEGER,
+    "year" NUMERIC,
     "lat" NUMERIC,
     "long" NUMERIC,
     PRIMARY KEY("id")
@@ -15,5 +13,5 @@ CREATE TABLE "meteorites_temp1" (
 DROP TABLE IF EXISTS "temp;";
 DROP TABLE IF EXISTS "meteorites_temp";
 .import --csv meteorites.csv meteorites_temp
-INSERT INTO "meteorites_temp1" ("name", "accession_number", "acquired")
-SELECT "title", "accession_number", "acquired" FROM "meteorites_temp";
+INSERT INTO "meteorites_temp1" ("name", "class", "mass", "discovery", "year", "lat", "long")
+SELECT "name", "class", "mass", "discovery", "year", "lat", "long" FROM "meteorites_temp";
