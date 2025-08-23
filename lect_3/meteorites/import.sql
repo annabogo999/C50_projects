@@ -1,4 +1,4 @@
-CREATE TABLE "meteorites" (
+CREATE TABLE "meteorites_temp1" (
     "id" INTEGER,
     "name" TEXT NOT NULL UNIQUE,
     "id_original" INTEGER NOT NULL UNIQUE,
