@@ -15,3 +15,5 @@ DROP TABLE IF EXISTS "meteorites_temp";
 .import --csv meteorites.csv meteorites_temp
 INSERT INTO "meteorites_temp1" ("name", "class", "mass", "discovery", "year", "lat", "long")
 SELECT "name", "class", "mass", "discovery", "year", "lat", "long" FROM "meteorites_temp";
+DELETE FROM "meteorites"
+WHERE "acquired" IS NULL;
