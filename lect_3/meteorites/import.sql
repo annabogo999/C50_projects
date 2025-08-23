@@ -6,10 +6,8 @@ CREATE TABLE "meteorites" (
     "class" TEXT,
     "mass" NUMERIC,
     "disc_year" INTEGER,
-    
-
-
-
+    "lat" NUMERIC,
+    "long" NUMERIC,
     PRIMARY KEY("id")
 );
 
