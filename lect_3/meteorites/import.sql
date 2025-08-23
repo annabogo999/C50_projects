@@ -15,3 +15,5 @@ CREATE TABLE "meteorites_temp1" (
 DROP TABLE IF EXISTS "temp;";
 DROP TABLE IF EXISTS "meteorites_temp";
 .import --csv meteorites.csv meteorites_temp
+INSERT INTO "meteorites_temp1" ("name", "accession_number", "acquired")
+SELECT "title", "accession_number", "acquired" FROM "meteorites_temp";
