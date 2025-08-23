@@ -9,7 +9,7 @@ CREATE TABLE "meteorites_temp1" (
     "long" NUMERIC,
     PRIMARY KEY("id")
 );
-.import --csv --skip 1 meteorites.csv temp
+.import --csv meteorites.csv temp
 DROP TABLE IF EXISTS "temp;";
 DROP TABLE IF EXISTS "meteorites_temp";
 .import --csv meteorites.csv meteorites_temp
