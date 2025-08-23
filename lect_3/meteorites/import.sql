@@ -1,3 +1,9 @@
+-- IMPORT FROM csv to temp
+.import --csv meteorites.csv temp
+-- CLEAN "Relict"
+DELETE FROM "meteorites"
+WHERE "nametype" = 'Relict';
+
 CREATE TABLE "meteorites_temp1" (
     "id" INTEGER,
     "name" TEXT NOT NULL UNIQUE,
@@ -16,4 +22,4 @@ DROP TABLE IF EXISTS "meteorites_temp";
 INSERT INTO "meteorites_temp1" ("name", "class", "mass", "discovery", "year", "lat", "long")
 SELECT "name", "class", "mass", "discovery", "year", "lat", "long" FROM "meteorites_temp";
 DELETE FROM "meteorites"
-WHERE "acquired" IS NULL;
+WHERE "nametype" IS NULL;
